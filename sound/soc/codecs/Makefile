@@ -373,7 +373,6 @@ snd-soc-wm2200-y := wm2200.o
 snd-soc-wm5100-y := wm5100.o wm5100-tables.o
 snd-soc-wm5102-y := wm5102.o
 snd-soc-wm5110-y := wm5110.o
-snd-soc-wm8350-y := wm8350.o
 snd-soc-wm8400-y := wm8400.o
 snd-soc-wm8510-y := wm8510.o
 snd-soc-wm8523-y := wm8523.o
