@@ -12,57 +12,6 @@
 #include <linux/mutex.h>
 #include <linux/interrupt.h>
 
-/* Unified sub device IDs for MAX8925 */
-enum {
-	MAX8925_ID_SD1,
-	MAX8925_ID_SD2,
-	MAX8925_ID_SD3,
-	MAX8925_ID_LDO1,
-	MAX8925_ID_LDO2,
-	MAX8925_ID_LDO3,
-	MAX8925_ID_LDO4,
-	MAX8925_ID_LDO5,
-	MAX8925_ID_LDO6,
-	MAX8925_ID_LDO7,
-	MAX8925_ID_LDO8,
-	MAX8925_ID_LDO9,
-	MAX8925_ID_LDO10,
-	MAX8925_ID_LDO11,
-	MAX8925_ID_LDO12,
-	MAX8925_ID_LDO13,
-	MAX8925_ID_LDO14,
-	MAX8925_ID_LDO15,
-	MAX8925_ID_LDO16,
-	MAX8925_ID_LDO17,
-	MAX8925_ID_LDO18,
-	MAX8925_ID_LDO19,
-	MAX8925_ID_LDO20,
-	MAX8925_ID_MAX,
-};
-
-enum {
-	/*
-	 * Charging current threshold trigger going from fast charge
-	 * to TOPOFF charge. From 5% to 20% of fasting charging current.
-	 */
-	MAX8925_TOPOFF_THR_5PER,
-	MAX8925_TOPOFF_THR_10PER,
-	MAX8925_TOPOFF_THR_15PER,
-	MAX8925_TOPOFF_THR_20PER,
-};
-
-enum {
-	/* Fast charging current */
-	MAX8925_FCHG_85MA,
-	MAX8925_FCHG_300MA,
-	MAX8925_FCHG_460MA,
-	MAX8925_FCHG_600MA,
-	MAX8925_FCHG_700MA,
-	MAX8925_FCHG_800MA,
-	MAX8925_FCHG_900MA,
-	MAX8925_FCHG_1000MA,
-};
-
 /* Charger registers */
 #define MAX8925_CHG_IRQ1		(0x7e)
 #define MAX8925_CHG_IRQ2		(0x7f)
@@ -187,8 +136,6 @@ enum {
 	MAX8925_NR_IRQS,
 };
 
-
-
 struct max8925_chip {
 	struct device		*dev;
 	struct i2c_client	*i2c;
@@ -201,27 +148,6 @@ struct max8925_chip {
 	int			core_irq;
 	int			tsc_irq;
 	unsigned int            wakeup_flag;
-};
-
-struct max8925_backlight_pdata {
-	int	lxw_scl;	/* 0/1 -- 0.8Ohm/0.4Ohm */
-	int	lxw_freq;	/* 700KHz ~ 1400KHz */
-	int	dual_string;	/* 0/1 -- single/dual string */
-};
-
-struct max8925_touch_pdata {
-	unsigned int		flags;
-};
-
-struct max8925_power_pdata {
-	int		(*set_charger)(int);
-	unsigned	batt_detect:1;
-	unsigned	topoff_threshold:2;
-	unsigned	fast_charge:3;	/* charge current */
-	unsigned	no_temp_support:1; /* set if no temperature detect */
-	unsigned	no_insert_detect:1; /* set if no ac insert detect */
-	char		**supplied_to;
-	int		num_supplicants;
 };
 
 extern int max8925_reg_read(struct i2c_client *, int);
