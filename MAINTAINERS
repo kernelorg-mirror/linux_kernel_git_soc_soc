@@ -6865,12 +6865,6 @@ M:	CVE Assignment Team <cve@kernel.org>
 S:	Maintained
 F:	Documentation/process/cve.rst
 
-CW1200 WLAN driver
-S:	Orphan
-L:	linux-wireless@vger.kernel.org
-F:	drivers/net/wireless/st/
-F:	include/linux/platform_data/net-cw1200.h
-
 CX18 VIDEO4LINUX DRIVER
 M:	Andy Walls <awalls@md.metrocast.net>
 L:	linux-media@vger.kernel.org
