@@ -69,13 +69,6 @@ config LCD_ILI9320
 	  If you have a panel based on the ILI9320 controller chip
 	  then say y to include a power driver for it.
 
-config LCD_TDO24M
-	tristate "Toppoly TDO24M and TDO35S LCD Panels support"
-	depends on SPI_MASTER
-	help
-	  If you have a Toppoly TDO24M/TDO35S series LCD panel, say y here to
-	  include the support for it.
-
 config LCD_VGG2432A4
 	tristate "VGG2432A4 LCM device support"
 	depends on SPI_MASTER
@@ -97,22 +90,6 @@ config LCD_HP700
 	help
 	  If you have an HP Jornada 700 series handheld (710/720/728)
 	  say Y to enable LCD control driver.
-
-config LCD_AMS369FG06
-	tristate "AMS369FG06 AMOLED LCD Driver"
-	depends on SPI && BACKLIGHT_CLASS_DEVICE
-	default n
-	help
-	  If you have an AMS369FG06 AMOLED Panel, say Y to enable its
-	  LCD control driver.
-
-config LCD_LMS501KF03
-	tristate "LMS501KF03 LCD Driver"
-	depends on SPI
-	default n
-	help
-	  If you have an LMS501KF03 LCD Panel, say Y to enable its
-	  LCD control driver.
 
 config LCD_HX8357
 	tristate "Himax HX-8357 LCD Driver"
@@ -367,30 +344,6 @@ config BACKLIGHT_ADP5520
 	  To compile this driver as a module, choose M here: the module will
 	  be called adp5520_bl.
 
-config BACKLIGHT_ADP8860
-	tristate "Backlight Driver for ADP8860/ADP8861/ADP8863 using WLED"
-	depends on I2C
-	select NEW_LEDS
-	select LEDS_CLASS
-	help
-	  If you have a LCD backlight connected to the ADP8860, ADP8861 or
-	  ADP8863 say Y here to enable this driver.
-
-	  To compile this driver as a module, choose M here: the module will
-	  be called adp8860_bl.
-
-config BACKLIGHT_ADP8870
-	tristate "Backlight Driver for ADP8870 using WLED"
-	depends on I2C
-	select NEW_LEDS
-	select LEDS_CLASS
-	help
-	  If you have a LCD backlight connected to the ADP8870,
-	  say Y here to enable this driver.
-
-	  To compile this driver as a module, choose M here: the module will
-	  be called adp8870_bl.
-
 config BACKLIGHT_88PM860X
 	tristate "Backlight Driver for 88PM8606 using WLED"
 	depends on MFD_88PM860X
@@ -417,15 +370,6 @@ config BACKLIGHT_LM3630A
 	select REGMAP_I2C
 	help
 	  This supports TI LM3630A Backlight Driver
-
-config BACKLIGHT_LM3639
-	tristate "Backlight Driver for LM3639"
-	depends on I2C
-	select REGMAP_I2C
-	select NEW_LEDS
-	select LEDS_CLASS
-	help
-	  This supports TI LM3639 Backlight + 1.5A Flash LED Driver
 
 config BACKLIGHT_LP855X
 	tristate "Backlight driver for TI LP855X"
@@ -494,12 +438,6 @@ config BACKLIGHT_LV5207LP
 	depends on I2C
 	help
 	  If you have a Sanyo LV5207LP say Y to enable the backlight driver.
-
-config BACKLIGHT_BD6107
-	tristate "Rohm BD6107 Backlight"
-	depends on I2C
-	help
-	  If you have a Rohm BD6107 say Y to enable the backlight driver.
 
 config BACKLIGHT_ARCXCNN
 	tristate "Backlight driver for the Arctic Sands ARCxCnnnn family"

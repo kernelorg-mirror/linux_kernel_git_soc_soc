@@ -1,7 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0
 # Backlight & LCD drivers
 
-obj-$(CONFIG_LCD_AMS369FG06)		+= ams369fg06.o
 obj-$(CONFIG_LCD_CLASS_DEVICE)		+= lcd.o
 obj-$(CONFIG_LCD_CORGI)			+= corgi_lcd.o
 obj-$(CONFIG_LCD_HP700)			+= jornada720_lcd.o
@@ -10,23 +9,18 @@ obj-$(CONFIG_LCD_ILI922X)		+= ili922x.o
 obj-$(CONFIG_LCD_ILI9320)		+= ili9320.o
 obj-$(CONFIG_LCD_L4F00242T03)		+= l4f00242t03.o
 obj-$(CONFIG_LCD_LMS283GF05)		+= lms283gf05.o
-obj-$(CONFIG_LCD_LMS501KF03)		+= lms501kf03.o
 obj-$(CONFIG_LCD_LTV350QV)		+= ltv350qv.o
 obj-$(CONFIG_LCD_OTM3225A)		+= otm3225a.o
 obj-$(CONFIG_LCD_PLATFORM)		+= platform_lcd.o
-obj-$(CONFIG_LCD_TDO24M)		+= tdo24m.o
 obj-$(CONFIG_LCD_VGG2432A4)		+= vgg2432a4.o
 
 obj-$(CONFIG_BACKLIGHT_88PM860X)	+= 88pm860x_bl.o
 obj-$(CONFIG_BACKLIGHT_AAT2870)		+= aat2870_bl.o
 obj-$(CONFIG_BACKLIGHT_ADP5520)		+= adp5520_bl.o
-obj-$(CONFIG_BACKLIGHT_ADP8860)		+= adp8860_bl.o
-obj-$(CONFIG_BACKLIGHT_ADP8870)		+= adp8870_bl.o
 obj-$(CONFIG_BACKLIGHT_APPLE)		+= apple_bl.o
 obj-$(CONFIG_BACKLIGHT_APPLE_DWI)	+= apple_dwi_bl.o
 obj-$(CONFIG_BACKLIGHT_AS3711)		+= as3711_bl.o
 obj-$(CONFIG_BACKLIGHT_AW99706)		+= aw99706.o
-obj-$(CONFIG_BACKLIGHT_BD6107)		+= bd6107.o
 obj-$(CONFIG_BACKLIGHT_CGBC)		+= cgbc_bl.o
 obj-$(CONFIG_BACKLIGHT_CLASS_DEVICE)	+= backlight.o
 obj-$(CONFIG_BACKLIGHT_DA903X)		+= da903x_bl.o
@@ -42,7 +36,6 @@ obj-$(CONFIG_BACKLIGHT_KTZ8866)		+= ktz8866.o
 obj-$(CONFIG_BACKLIGHT_LM3509)		+= lm3509_bl.o
 obj-$(CONFIG_BACKLIGHT_LM3533)		+= lm3533_bl.o
 obj-$(CONFIG_BACKLIGHT_LM3630A)		+= lm3630a_bl.o
-obj-$(CONFIG_BACKLIGHT_LM3639)		+= lm3639_bl.o
 obj-$(CONFIG_BACKLIGHT_LOCOMO)		+= locomolcd.o
 obj-$(CONFIG_BACKLIGHT_LP855X)		+= lp855x_bl.o
 obj-$(CONFIG_BACKLIGHT_LP8788)		+= lp8788_bl.o
