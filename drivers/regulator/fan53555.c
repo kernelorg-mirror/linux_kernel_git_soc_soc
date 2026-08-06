@@ -17,10 +17,54 @@
 #include <linux/platform_device.h>
 #include <linux/regmap.h>
 #include <linux/regulator/driver.h>
-#include <linux/regulator/fan53555.h>
 #include <linux/regulator/machine.h>
 #include <linux/regulator/of_regulator.h>
 #include <linux/slab.h>
+
+/* VSEL ID */
+enum {
+	FAN53555_VSEL_ID_0 = 0,
+	FAN53555_VSEL_ID_1,
+};
+
+/* Transition slew rate limiting from a low to high voltage.
+ * -----------------------
+ *   Bin |Slew Rate(mV/uS)
+ * ------|----------------
+ *   000 |    64.00
+ * ------|----------------
+ *   001 |    32.00
+ * ------|----------------
+ *   010 |    16.00
+ * ------|----------------
+ *   011 |     8.00
+ * ------|----------------
+ *   100 |     4.00
+ * ------|----------------
+ *   101 |     2.00
+ * ------|----------------
+ *   110 |     1.00
+ * ------|----------------
+ *   111 |     0.50
+ * -----------------------
+ */
+enum {
+	FAN53555_SLEW_RATE_64MV = 0,
+	FAN53555_SLEW_RATE_32MV,
+	FAN53555_SLEW_RATE_16MV,
+	FAN53555_SLEW_RATE_8MV,
+	FAN53555_SLEW_RATE_4MV,
+	FAN53555_SLEW_RATE_2MV,
+	FAN53555_SLEW_RATE_1MV,
+	FAN53555_SLEW_RATE_0_5MV,
+};
+
+struct fan53555_platform_data {
+	struct regulator_init_data *regulator;
+	unsigned int slew_rate;
+	/* Sleep VSEL ID */
+	unsigned int sleep_vsel_id;
+};
 
 /* Voltage setting */
 #define FAN53555_VSEL0		0x00
@@ -686,10 +730,7 @@ static int fan53555_regulator_probe(struct i2c_client *client)
 	if (!di)
 		return -ENOMEM;
 
-	pdata = dev_get_platdata(&client->dev);
-	if (!pdata)
-		pdata = fan53555_parse_dt(&client->dev, np, &di->desc);
-
+	pdata = fan53555_parse_dt(&client->dev, np, &di->desc);
 	if (!pdata || !pdata->regulator)
 		return dev_err_probe(&client->dev, -ENODEV,
 				     "Platform data not found!\n");
@@ -782,7 +823,7 @@ static struct i2c_driver fan53555_regulator_driver = {
 	.driver = {
 		.name = "fan53555-regulator",
 		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
-		.of_match_table = of_match_ptr(fan53555_dt_ids),
+		.of_match_table = fan53555_dt_ids,
 	},
 	.probe = fan53555_regulator_probe,
 	.id_table = fan53555_id,
