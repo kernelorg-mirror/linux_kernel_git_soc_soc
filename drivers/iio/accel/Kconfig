@@ -64,7 +64,6 @@ config ADXL345
 
 config ADXL345_I2C
 	tristate "Analog Devices ADXL345 3-Axis Digital Accelerometer I2C Driver"
-	depends on !INPUT_ADXL34X
 	depends on I2C
 	select ADXL345
 	select REGMAP_I2C
@@ -74,12 +73,10 @@ config ADXL345_I2C
 
 	  To compile this driver as a module, choose M here: the module
 	  will be called adxl345_i2c and you will also get adxl345_core
-	  for the core module. INPUT_ADXL34X share compatibles with this
-	  driver, do not add both modules to the kernel.
+	  for the core module.
 
 config ADXL345_SPI
 	tristate "Analog Devices ADXL345 3-Axis Digital Accelerometer SPI Driver"
-	depends on !INPUT_ADXL34X
 	depends on SPI
 	select ADXL345
 	select REGMAP_SPI
@@ -89,8 +86,7 @@ config ADXL345_SPI
 
 	  To compile this driver as a module, choose M here: the module
 	  will be called adxl345_spi and you will also get adxl345_core
-	  for the core module. INPUT_ADXL34X share compatibles with this
-	  driver, do not add both modules to the kernel.
+	  for the core module.
 
 config ADXL355
 	tristate
@@ -208,7 +204,7 @@ config ADXL380_I2C
 
 config BMA180
 	tristate "Bosch BMA023/BMA1x0/BMA250 3-Axis Accelerometer Driver"
-	depends on I2C && INPUT_BMA150=n
+	depends on I2C
 	select IIO_BUFFER
 	select IIO_TRIGGERED_BUFFER
 	help
