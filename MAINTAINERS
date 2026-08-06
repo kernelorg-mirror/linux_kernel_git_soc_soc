@@ -2107,12 +2107,6 @@ S:	Maintained
 F:	Documentation/devicetree/bindings/mtd/arasan,nand-controller.yaml
 F:	drivers/mtd/nand/raw/arasan-nand-controller.c
 
-ARC FRAMEBUFFER DRIVER
-M:	Jaya Kumar <jayalk@intworks.biz>
-S:	Maintained
-F:	drivers/video/fbdev/arcfb.c
-F:	drivers/video/fbdev/core/fb_defio.c
-
 ARC PGU DRM DRIVER
 M:	Alexey Brodkin <abrodkin@synopsys.com>
 S:	Supported
@@ -9531,13 +9525,6 @@ M:	Laurentiu Tudor <laurentiu.tudor@nxp.com>
 L:	linuxppc-dev@lists.ozlabs.org
 S:	Maintained
 F:	drivers/tty/ehv_bytechan.c
-
-EPSON S1D13XXX FRAMEBUFFER DRIVER
-M:	Kristoffer Ericson <kristoffer.ericson@gmail.com>
-S:	Maintained
-T:	git git://git.kernel.org/pub/scm/linux/kernel/git/kristoffer/linux-hpc.git
-F:	drivers/video/fbdev/s1d13xxxfb.c
-F:	include/video/s1d13xxxfb.h
 
 EROFS FILE SYSTEM
 M:	Gao Xiang <xiang@kernel.org>

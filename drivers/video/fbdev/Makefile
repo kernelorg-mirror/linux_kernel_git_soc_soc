@@ -13,7 +13,6 @@ obj-$(CONFIG_FB_WMT_GE_ROPS)   += wmt_ge_rops.o
 
 # Hardware specific drivers go first
 obj-$(CONFIG_FB_AMIGA)            += amifb.o c2p_planar.o
-obj-$(CONFIG_FB_ARC)              += arcfb.o
 obj-$(CONFIG_FB_CLPS711X)	  += clps711x-fb.o
 obj-$(CONFIG_FB_CYBER2000)        += cyber2000fb.o
 obj-$(CONFIG_FB_GRVGA)            += grvga.o
@@ -56,8 +55,6 @@ obj-$(CONFIG_FB_LEO)              += leo.o
 obj-$(CONFIG_FB_ATARI)            += atafb.o c2p_iplan2.o atafb_mfb.o \
                                      atafb_iplan2p2.o atafb_iplan2p4.o atafb_iplan2p8.o
 obj-$(CONFIG_FB_MAC)              += macfb.o
-obj-$(CONFIG_FB_HECUBA)           += hecubafb.o
-obj-$(CONFIG_FB_N411)             += n411.o
 obj-$(CONFIG_FB_XVR500)           += sunxvr500.o
 obj-$(CONFIG_FB_XVR2500)          += sunxvr2500.o
 obj-$(CONFIG_FB_XVR1000)          += sunxvr1000.o
@@ -66,7 +63,6 @@ obj-$(CONFIG_FB_Q40)              += q40fb.o
 obj-$(CONFIG_FB_TGA)              += tgafb.o
 obj-$(CONFIG_FB_HP300)            += hpfb.o
 obj-$(CONFIG_FB_G364)             += g364fb.o
-obj-$(CONFIG_FB_EP93XX)		  += ep93xx-fb.o
 obj-$(CONFIG_FB_HIT)              += hitfb.o
 obj-$(CONFIG_FB_ATMEL)		  += atmel_lcdfb.o
 obj-$(CONFIG_FB_PVR2)             += pvr2fb.o
@@ -86,8 +82,6 @@ obj-$(CONFIG_FB_PMAG_AA)	  += pmag-aa-fb.o
 obj-$(CONFIG_FB_PMAG_BA)	  += pmag-ba-fb.o
 obj-$(CONFIG_FB_PMAGB_B)	  += pmagb-b-fb.o
 obj-$(CONFIG_FB_MAXINE)		  += maxinefb.o
-obj-$(CONFIG_FB_METRONOME)        += metronomefb.o
-obj-$(CONFIG_FB_S1D13XXX)	  += s1d13xxxfb.o
 obj-$(CONFIG_FB_SH7760)		  += sh7760fb.o
 obj-$(CONFIG_FB_IMX)              += imxfb.o
 obj-$(CONFIG_FB_S3C)		  += s3c-fb.o

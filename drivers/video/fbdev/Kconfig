@@ -45,11 +45,6 @@ menuconfig FB
 	  (e.g. an accelerated X server) and that are not frame buffer
 	  device-aware may cause unexpected results. If unsure, say N.
 
-config FB_HECUBA
-	tristate
-	depends on FB
-	select FB_SYSMEM_HELPERS_DEFERRED
-
 config FB_SVGALIB
 	tristate
 	depends on FB
@@ -211,19 +206,6 @@ config FB_FM2
 	help
 	  This is the frame buffer device driver for the Amiga FrameMaster
 	  card from BSC (exhibited 1992 but not shipped as a CBM product).
-
-config FB_ARC
-	tristate "Arc Monochrome LCD board support"
-	depends on FB && HAS_IOPORT && (X86 || COMPILE_TEST)
-	select FB_SYSMEM_HELPERS_DEFERRED
-	help
-	  This enables support for the Arc Monochrome LCD board. The board
-	  is based on the KS-108 lcd controller and is typically a matrix
-	  of 2*n chips. This driver was tested with a 128x64 panel. This
-	  driver supports it for use with x86 SBCs through a 16 bit GPIO
-	  interface (8 bit data, 8 bit control). If you anticipate using
-	  this driver, say Y or M; otherwise say N. You must specify the
-	  GPIO IO address to be used for setting control and data.
 
 config FB_ATARI
 	bool "Atari native chipset support"
@@ -414,14 +396,6 @@ config FB_EFI
 	  your platform is EFI 1.10 or UEFI 2.0, select Y to add support for
 	  using the EFI framebuffer as your console.
 
-config FB_N411
-	tristate "N411 Apollo/Hecuba devkit support"
-	depends on FB && X86 && MMU
-	select FB_HECUBA
-	help
-	  This enables support for the Apollo display controller in its
-	  Hecuba form using the n411 devkit.
-
 config FB_GBE
 	bool "SGI Graphics Backend frame buffer support"
 	depends on (FB = y) && HAS_IOMEM
@@ -589,18 +563,6 @@ config FB_OPENCORES
 
 	  The source code and specification for the core is available at
 	  <https://opencores.org/project,vga_lcd>
-
-config FB_S1D13XXX
-	tristate "Epson S1D13XXX framebuffer support"
-	depends on FB
-	select FB_CFB_FILLRECT
-	select FB_CFB_COPYAREA
-	select FB_CFB_IMAGEBLIT
-	select FB_IOMEM_FOPS
-	help
-	  Support for S1D13XXX framebuffer device family (currently only
-	  working with S1D13806). Product specs at
-	  <https://vdc.epson.com/>
 
 config FB_ATMEL
 	tristate "AT91 LCD Controller support"
@@ -1646,15 +1608,6 @@ config XEN_FBDEV_FRONTEND
 	  frame buffer driver.  It communicates with a back-end
 	  in another domain.
 
-config FB_METRONOME
-	tristate "E-Ink Metronome/8track controller support"
-	depends on FB
-	select FB_SYSMEM_HELPERS_DEFERRED
-	help
-	  This driver implements support for the E-Ink Metronome
-	  controller. The pre-release name for this device was 8track
-	  and could also have been called by some vendors as PVI-nnnn.
-
 config FB_MB862XX
 	tristate "Fujitsu MB862xx GDC support"
 	depends on FB
@@ -1693,15 +1646,6 @@ config FB_MB862XX_I2C
 	  Selecting this option adds Coral-P(A)/Lime GDC I2C bus adapter
 	  driver to support accessing I2C devices on controller's I2C bus.
 	  These are usually some video decoder chips.
-
-config FB_EP93XX
-	tristate "EP93XX frame buffer support"
-	depends on FB && ARCH_EP93XX
-	select FB_IOMEM_HELPERS
-	help
-	  Framebuffer driver for the Cirrus Logic EP93XX series of processors.
-	  This driver is also available as a module. The module will be called
-	  ep93xx-fb.
 
 config FB_PRE_INIT_FB
 	bool "Don't reinitialize, use bootloader's GDC/Display configuration"
