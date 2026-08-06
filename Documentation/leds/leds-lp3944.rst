@@ -36,24 +36,3 @@ See the datasheet for details.
 
 LP3944 can be found on Motorola A910 smartphone, where it drives the rgb
 leds, the camera flash light and the lcds power.
-
-
-Notes
------
-The chip is used mainly in embedded contexts, so this driver expects it is
-registered using the i2c_board_info mechanism.
-
-To register the chip at address 0x60 on adapter 0, set the platform data
-according to include/linux/leds-lp3944.h, set the i2c board info::
-
-	static struct i2c_board_info a910_i2c_board_info[] __initdata = {
-		{
-			I2C_BOARD_INFO("lp3944", 0x60),
-			.platform_data = &a910_lp3944_leds,
-		},
-	};
-
-and register it in the platform init function::
-
-	i2c_register_board_info(0, a910_i2c_board_info,
-			ARRAY_SIZE(a910_i2c_board_info));
