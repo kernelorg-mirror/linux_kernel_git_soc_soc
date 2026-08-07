@@ -9,7 +9,6 @@
 #include <linux/gpio/consumer.h>
 #include <linux/module.h>
 #include <linux/delay.h>
-#include <linux/platform_data/edma.h>
 #include <linux/platform_device.h>
 #include <linux/err.h>
 #include <linux/clk.h>
@@ -127,7 +126,6 @@ struct davinci_spi_platform_data {
 	u8			intr_line;
 	u8			prescaler_limit;
 	bool			cshold_bug;
-	enum dma_event_q	dma_event_q;
 };
 
 /**
