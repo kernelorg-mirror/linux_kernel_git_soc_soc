@@ -224,42 +224,6 @@ struct max8925_power_pdata {
 	int		num_supplicants;
 };
 
-/*
- * irq_base: stores IRQ base number of MAX8925 in platform
- * tsc_irq: stores IRQ number of MAX8925 TSC
- */
-struct max8925_platform_data {
-	struct max8925_backlight_pdata	*backlight;
-	struct max8925_touch_pdata	*touch;
-	struct max8925_power_pdata	*power;
-	struct regulator_init_data	*sd1;
-	struct regulator_init_data	*sd2;
-	struct regulator_init_data	*sd3;
-	struct regulator_init_data	*ldo1;
-	struct regulator_init_data	*ldo2;
-	struct regulator_init_data	*ldo3;
-	struct regulator_init_data	*ldo4;
-	struct regulator_init_data	*ldo5;
-	struct regulator_init_data	*ldo6;
-	struct regulator_init_data	*ldo7;
-	struct regulator_init_data	*ldo8;
-	struct regulator_init_data	*ldo9;
-	struct regulator_init_data	*ldo10;
-	struct regulator_init_data	*ldo11;
-	struct regulator_init_data	*ldo12;
-	struct regulator_init_data	*ldo13;
-	struct regulator_init_data	*ldo14;
-	struct regulator_init_data	*ldo15;
-	struct regulator_init_data	*ldo16;
-	struct regulator_init_data	*ldo17;
-	struct regulator_init_data	*ldo18;
-	struct regulator_init_data	*ldo19;
-	struct regulator_init_data	*ldo20;
-
-	int		irq_base;
-	int		tsc_irq;
-};
-
 extern int max8925_reg_read(struct i2c_client *, int);
 extern int max8925_reg_write(struct i2c_client *, int, unsigned char);
 extern int max8925_bulk_read(struct i2c_client *, int, int, unsigned char *);
@@ -267,8 +231,7 @@ extern int max8925_bulk_write(struct i2c_client *, int, int, unsigned char *);
 extern int max8925_set_bits(struct i2c_client *, int, unsigned char,
 			unsigned char);
 
-extern int max8925_device_init(struct max8925_chip *,
-				struct max8925_platform_data *);
+extern int max8925_device_init(struct max8925_chip *, int tsc_irq);
 extern void max8925_device_exit(struct max8925_chip *);
 #endif /* __LINUX_MFD_MAX8925_H */
 
