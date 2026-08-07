@@ -197,7 +197,6 @@ struct inv_mpu6050_state {
 	enum   inv_devices chip_type;
 	struct i2c_mux_core *muxc;
 	struct i2c_client *mux_client;
-	struct inv_mpu6050_platform_data plat_data;
 	struct iio_mount_matrix orientation;
 	struct regmap *map;
 	int irq;

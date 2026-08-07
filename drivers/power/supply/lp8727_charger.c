@@ -11,8 +11,61 @@
 #include <linux/interrupt.h>
 #include <linux/i2c.h>
 #include <linux/power_supply.h>
-#include <linux/platform_data/lp8727.h>
 #include <linux/of.h>
+
+enum lp8727_eoc_level {
+	LP8727_EOC_5P,
+	LP8727_EOC_10P,
+	LP8727_EOC_16P,
+	LP8727_EOC_20P,
+	LP8727_EOC_25P,
+	LP8727_EOC_33P,
+	LP8727_EOC_50P,
+};
+
+enum lp8727_ichg {
+	LP8727_ICHG_90mA,
+	LP8727_ICHG_100mA,
+	LP8727_ICHG_400mA,
+	LP8727_ICHG_450mA,
+	LP8727_ICHG_500mA,
+	LP8727_ICHG_600mA,
+	LP8727_ICHG_700mA,
+	LP8727_ICHG_800mA,
+	LP8727_ICHG_900mA,
+	LP8727_ICHG_1000mA,
+};
+
+/**
+ * struct lp8727_chg_param
+ * @eoc_level : end of charge level setting
+ * @ichg      : charging current
+ */
+struct lp8727_chg_param {
+	enum lp8727_eoc_level eoc_level;
+	enum lp8727_ichg ichg;
+};
+
+/**
+ * struct lp8727_platform_data
+ * @get_batt_present  : check battery status - exists or not
+ * @get_batt_level    : get battery voltage (mV)
+ * @get_batt_capacity : get battery capacity (%)
+ * @get_batt_temp     : get battery temperature
+ * @ac                : charging parameters for AC type charger
+ * @usb               : charging parameters for USB type charger
+ * @debounce_msec     : interrupt debounce time
+ */
+struct lp8727_platform_data {
+	u8 (*get_batt_present)(void);
+	u16 (*get_batt_level)(void);
+	u8 (*get_batt_capacity)(void);
+	u8 (*get_batt_temp)(void);
+	struct lp8727_chg_param *ac;
+	struct lp8727_chg_param *usb;
+	unsigned int debounce_msec;
+};
+
 
 #define LP8788_NUM_INTREGS	2
 #define DEFAULT_DEBOUNCE_MSEC	270
@@ -469,7 +522,6 @@ static int lp8727_register_psy(struct lp8727_chg *pchg)
 	return 0;
 }
 
-#ifdef CONFIG_OF
 static struct lp8727_chg_param
 *lp8727_parse_charge_pdata(struct device *dev, struct device_node *np)
 {
@@ -514,12 +566,6 @@ static struct lp8727_platform_data *lp8727_parse_dt(struct device *dev)
 
 	return pdata;
 }
-#else
-static struct lp8727_platform_data *lp8727_parse_dt(struct device *dev)
-{
-	return NULL;
-}
-#endif
 
 static int lp8727_probe(struct i2c_client *cl)
 {
@@ -530,13 +576,9 @@ static int lp8727_probe(struct i2c_client *cl)
 	if (!i2c_check_functionality(cl->adapter, I2C_FUNC_SMBUS_I2C_BLOCK))
 		return -EIO;
 
-	if (cl->dev.of_node) {
-		pdata = lp8727_parse_dt(&cl->dev);
-		if (IS_ERR(pdata))
-			return PTR_ERR(pdata);
-	} else {
-		pdata = dev_get_platdata(&cl->dev);
-	}
+	pdata = lp8727_parse_dt(&cl->dev);
+	if (IS_ERR(pdata))
+		return PTR_ERR(pdata);
 
 	pchg = devm_kzalloc(&cl->dev, sizeof(*pchg), GFP_KERNEL);
 	if (!pchg)
@@ -592,7 +634,7 @@ MODULE_DEVICE_TABLE(i2c, lp8727_ids);
 static struct i2c_driver lp8727_driver = {
 	.driver = {
 		   .name = "lp8727",
-		   .of_match_table = of_match_ptr(lp8727_dt_ids),
+		   .of_match_table = lp8727_dt_ids,
 		   },
 	.probe = lp8727_probe,
 	.remove = lp8727_remove,

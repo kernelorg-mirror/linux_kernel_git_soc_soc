@@ -821,8 +821,6 @@ static int davinci_spi_request_dma(struct davinci_spi *dspi)
 	return 0;
 }
 
-#if defined(CONFIG_OF)
-
 /* OF SPI data structure */
 struct davinci_spi_of_data {
 	u8	version;
@@ -898,13 +896,6 @@ static int spi_davinci_get_pdata(struct platform_device *pdev,
 	pdata->intr_line = intr_line;
 	return 0;
 }
-#else
-static int spi_davinci_get_pdata(struct platform_device *pdev,
-			struct davinci_spi *dspi)
-{
-	return -ENODEV;
-}
-#endif
 
 /**
  * davinci_spi_probe - probe function for SPI Master Controller
@@ -1093,7 +1084,7 @@ static void davinci_spi_remove(struct platform_device *pdev)
 static struct platform_driver davinci_spi_driver = {
 	.driver = {
 		.name = "spi_davinci",
-		.of_match_table = of_match_ptr(davinci_spi_of_match),
+		.of_match_table = davinci_spi_of_match,
 	},
 	.probe = davinci_spi_probe,
 	.remove = davinci_spi_remove,
