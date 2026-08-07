@@ -123,9 +123,7 @@ static int tps6105x_probe(struct i2c_client *client)
 	struct tps6105x_platform_data	*pdata;
 	int ret;
 
-	pdata = dev_get_platdata(&client->dev);
-	if (!pdata)
-		pdata = tps6105x_parse_dt(&client->dev);
+	pdata = tps6105x_parse_dt(&client->dev);
 	if (IS_ERR(pdata)) {
 		dev_err(&client->dev, "No platform data or DT found");
 		return PTR_ERR(pdata);
