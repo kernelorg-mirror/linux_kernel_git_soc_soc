@@ -5009,7 +5009,6 @@ F:	Documentation/devicetree/bindings/net/dsa/brcm,b53.yaml
 F:	drivers/net/dsa/b53/*
 F:	drivers/net/dsa/bcm_sf2*
 F:	include/linux/dsa/brcm.h
-F:	include/linux/platform_data/b53.h
 F:	net/dsa/tag_brcm.c
 
 BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE
@@ -11558,7 +11557,6 @@ L:	netdev@vger.kernel.org
 S:	Maintained
 F:	Documentation/devicetree/bindings/net/dsa/hirschmann,hellcreek.yaml
 F:	drivers/net/dsa/hirschmann/*
-F:	include/linux/platform_data/hirschmann-hellcreek.h
 F:	net/dsa/tag_hellcreek.c
 
 HISILICON DMA DRIVER
@@ -15496,7 +15494,6 @@ F:	Documentation/devicetree/bindings/net/dsa/marvell,mv88e6xxx.yaml
 F:	Documentation/networking/devlink/mv88e6xxx.rst
 F:	drivers/net/dsa/mv88e6xxx/
 F:	include/linux/dsa/mv88e6xxx.h
-F:	include/linux/platform_data/mv88e6xxx.h
 
 MARVELL 88PM886 PMIC DRIVER
 M:	Karel Balej <balejk@matfyz.cz>
@@ -17498,7 +17495,6 @@ F:	Documentation/devicetree/bindings/net/dsa/microchip,ksz.yaml
 F:	Documentation/devicetree/bindings/net/dsa/microchip,lan937x.yaml
 F:	drivers/net/dsa/microchip/*
 F:	include/linux/dsa/ksz_common.h
-F:	include/linux/platform_data/microchip-ksz.h
 F:	net/dsa/tag_ksz.c
 
 MICROCHIP LAN743X ETHERNET DRIVER
