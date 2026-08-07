@@ -10,7 +10,6 @@
 #include <linux/err.h>
 #include <linux/slab.h>
 #include <linux/leds.h>
-#include <linux/mfd/max8997.h>
 #include <linux/mfd/max8997-private.h>
 #include <linux/platform_device.h>
 
