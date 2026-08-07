@@ -19,7 +19,6 @@
 
 #include "cw1200.h"
 #include "hwbus.h"
-#include <linux/platform_data/net-cw1200.h>
 #include "hwio.h"
 
 MODULE_AUTHOR("Dmitry Tarnyagin <dmitry.tarnyagin@lockless.no>");
@@ -29,6 +28,21 @@ MODULE_LICENSE("GPL");
 #define SDIO_BLOCK_SIZE (512)
 
 /* Default platform data for Sagrad modules */
+struct cw1200_platform_data_sdio {
+	u16 ref_clk;                    /* REQUIRED (in KHz) */
+
+	/* All others are optional */
+	bool have_5ghz;
+	bool no_nptb;       /* SDIO hardware does not support non-power-of-2-blocksizes */
+	int irq;            /* IRQ line or 0 to use SDIO IRQ */
+	int (*power_ctrl)(const struct cw1200_platform_data_sdio *pdata,
+			  bool enable); /* Control 3v3 / 1v8 supply */
+	int (*clk_ctrl)(const struct cw1200_platform_data_sdio *pdata,
+			bool enable); /* Control CLK32K */
+	const u8 *macaddr;  /* if NULL, use cw1200_mac_template module parameter */
+	const char *sdd_file;  /* if NULL, will use default for detected hw type */
+};
+
 static struct cw1200_platform_data_sdio sagrad_109x_evk_platform_data = {
 	.ref_clk = 38400,
 	.have_5ghz = false,
@@ -37,11 +51,6 @@ static struct cw1200_platform_data_sdio sagrad_109x_evk_platform_data = {
 
 /* Allow platform data to be overridden */
 static struct cw1200_platform_data_sdio *global_plat_data = &sagrad_109x_evk_platform_data;
-
-void __init cw1200_sdio_set_platform_data(struct cw1200_platform_data_sdio *pdata)
-{
-	global_plat_data = pdata;
-}
 
 struct hwbus_priv {
 	struct sdio_func	*func;
