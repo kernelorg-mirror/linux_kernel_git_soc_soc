@@ -58,10 +58,7 @@ int __init omap_init_vrfb(void)
 	const struct resource *res;
 	unsigned int num_res;
 
-	if (cpu_is_omap24xx()) {
-		res = omap2_vrfb_resources;
-		num_res = ARRAY_SIZE(omap2_vrfb_resources);
-	} else if (cpu_is_omap34xx()) {
+	if (cpu_is_omap34xx()) {
 		res = omap3_vrfb_resources;
 		num_res = ARRAY_SIZE(omap3_vrfb_resources);
 	} else {
