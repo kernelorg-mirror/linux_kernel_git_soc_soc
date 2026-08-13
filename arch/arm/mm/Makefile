@@ -42,7 +42,6 @@ obj-$(CONFIG_CPU_CACHE_V6)	+= cache-v6.o
 obj-$(CONFIG_CPU_CACHE_V7)	+= cache-v7.o
 obj-$(CONFIG_CPU_CACHE_FA)	+= cache-fa.o
 obj-$(CONFIG_CPU_CACHE_NOP)	+= cache-nop.o
-obj-$(CONFIG_CPU_CACHE_V7M)	+= cache-v7m.o
 obj-y				+= cache.o
 
 obj-$(CONFIG_CPU_COPY_V4WT)	+= copypage-v4wt.o
@@ -74,7 +73,6 @@ obj-$(CONFIG_CPU_MOHAWK)	+= proc-mohawk.o
 obj-$(CONFIG_CPU_FEROCEON)	+= proc-feroceon.o
 obj-$(CONFIG_CPU_V6K)		+= proc-v6.o
 obj-$(CONFIG_CPU_V7)		+= proc-v7.o proc-v7-bugs.o
-obj-$(CONFIG_CPU_V7M)		+= proc-v7m.o
 obj-$(CONFIG_CFI)		+= proc.o
 
 obj-$(CONFIG_OUTER_CACHE)	+= l2c-common.o
