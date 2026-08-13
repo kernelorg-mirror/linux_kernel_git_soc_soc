@@ -3023,8 +3023,6 @@ F:	Documentation/devicetree/bindings/arm/marvell/marvell,orion5x.yaml
 F:	Documentation/devicetree/bindings/soc/dove/
 F:	arch/arm/boot/dts/marvell/dove*
 F:	arch/arm/boot/dts/marvell/orion5x*
-F:	arch/arm/mach-dove/
-F:	arch/arm/mach-mv78xx0/
 F:	arch/arm/mach-orion5x/
 F:	arch/arm/plat-orion/
 F:	drivers/bus/mvebu-mbus.c
