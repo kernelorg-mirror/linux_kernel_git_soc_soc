@@ -408,7 +408,6 @@ setup_return(struct pt_regs *regs, struct ksignal *ksig,
 			return 1;
 
 rc_finish:
-#ifdef CONFIG_MMU
 		if (cpsr & MODE32_BIT) {
 			struct mm_struct *mm = current->mm;
 
@@ -419,9 +418,7 @@ rc_finish:
 			 */
 			retcode = mm->context.sigpage + signal_return_offset +
 				  (idx << 2) + thumb;
-		} else
-#endif
-		{
+		} else {
 			/*
 			 * Ensure that the instruction cache sees
 			 * the return code written onto the stack.

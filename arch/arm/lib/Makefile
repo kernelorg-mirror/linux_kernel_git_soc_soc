@@ -28,7 +28,7 @@ endif
 # using lib_ here won't override already available weak symbols
 obj-$(CONFIG_UACCESS_WITH_MEMCPY) += uaccess_with_memcpy.o
 
-lib-$(CONFIG_MMU) += $(mmu-y)
+lib-y += $(mmu-y)
 
 lib-y	+= io-readsw-armv4.o io-writesw-armv4.o
 
