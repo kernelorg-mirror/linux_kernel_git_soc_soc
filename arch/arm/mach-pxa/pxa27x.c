@@ -122,7 +122,6 @@ static void pxa27x_cpu_pm_restore(unsigned long *sleep_save)
 static void pxa27x_cpu_pm_enter(suspend_state_t state)
 {
 	extern void pxa_cpu_standby(void);
-#ifndef CONFIG_IWMMXT
 	u64 acc0;
 
 #ifndef CONFIG_AS_IS_LLVM
@@ -130,7 +129,6 @@ static void pxa27x_cpu_pm_enter(suspend_state_t state)
 		     "mra %Q0, %R0, acc0" : "=r" (acc0));
 #else
 	asm volatile("mrrc p0, 0, %Q0, %R0, c0" : "=r" (acc0));
-#endif
 #endif
 
 	/* ensure voltage-change sequencer not initiated, which hangs */
@@ -148,13 +146,11 @@ static void pxa27x_cpu_pm_enter(suspend_state_t state)
 		break;
 	case PM_SUSPEND_MEM:
 		cpu_suspend(pwrmode, pxa27x_finish_suspend);
-#ifndef CONFIG_IWMMXT
 #ifndef CONFIG_AS_IS_LLVM
 		asm volatile(".arch_extension xscale\n\t"
 			     "mar acc0, %Q0, %R0" : "=r" (acc0));
 #else
 		asm volatile("mcrr p0, 0, %Q0, %R0, c0" :: "r" (acc0));
-#endif
 #endif
 		break;
 	}
