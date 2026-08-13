@@ -71,7 +71,6 @@ endif
 arch-$(CONFIG_CPU_32v5)		:=-march=armv5te
 arch-$(CONFIG_CPU_32v4T)	:=-march=armv4t
 arch-$(CONFIG_CPU_32v4)		:=-march=armv4
-arch-$(CONFIG_CPU_32v3)		:=-march=armv3m
 
 # Note that GCC does not numerically define an architecture version
 # macro, but instead defines a whole series of macros which makes
@@ -87,7 +86,6 @@ endif
 cpp-$(CONFIG_CPU_32v5)		:=-D__LINUX_ARM_ARCH__=5
 cpp-$(CONFIG_CPU_32v4T)		:=-D__LINUX_ARM_ARCH__=4
 cpp-$(CONFIG_CPU_32v4)		:=-D__LINUX_ARM_ARCH__=4
-cpp-$(CONFIG_CPU_32v3)		:=-D__LINUX_ARM_ARCH__=3
 
 # This selects how we optimise for the processor.
 tune-$(CONFIG_CPU_ARM7TDMI)	:=-mtune=arm7tdmi
@@ -101,8 +99,6 @@ tune-$(CONFIG_CPU_ARM922T)	:=-mtune=arm9tdmi
 tune-$(CONFIG_CPU_ARM925T)	:=-mtune=arm9tdmi
 tune-$(CONFIG_CPU_ARM926T)	:=-mtune=arm9tdmi
 tune-$(CONFIG_CPU_FA526)	:=-mtune=arm9tdmi
-tune-$(CONFIG_CPU_SA110)	:=-mtune=strongarm110
-tune-$(CONFIG_CPU_SA1100)	:=-mtune=strongarm1100
 tune-$(CONFIG_CPU_XSCALE)	:=-mtune=xscale
 tune-$(CONFIG_CPU_XSC3)		:=-mtune=xscale
 tune-$(CONFIG_CPU_FEROCEON)	:=-mtune=xscale
