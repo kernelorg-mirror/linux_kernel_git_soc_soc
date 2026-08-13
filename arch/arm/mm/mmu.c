@@ -1112,7 +1112,7 @@ static void __init fill_pmd_gaps(void)
 #define fill_pmd_gaps() do { } while (0)
 #endif
 
-#if defined(CONFIG_PCI) && !defined(CONFIG_NEED_MACH_IO_H)
+#if defined(CONFIG_PCI)
 static void __init pci_reserve_io(void)
 {
 	struct static_vm *svm;

@@ -71,7 +71,6 @@ endif
 arch-$(CONFIG_CPU_32v5)		:=-march=armv5te
 arch-$(CONFIG_CPU_32v4T)	:=-march=armv4t
 arch-$(CONFIG_CPU_32v4)		:=-march=armv4
-arch-$(CONFIG_CPU_32v3)		:=-march=armv3m
 
 # Note that GCC does not numerically define an architecture version
 # macro, but instead defines a whole series of macros which makes
@@ -87,7 +86,6 @@ endif
 cpp-$(CONFIG_CPU_32v5)		:=-D__LINUX_ARM_ARCH__=5
 cpp-$(CONFIG_CPU_32v4T)		:=-D__LINUX_ARM_ARCH__=4
 cpp-$(CONFIG_CPU_32v4)		:=-D__LINUX_ARM_ARCH__=4
-cpp-$(CONFIG_CPU_32v3)		:=-D__LINUX_ARM_ARCH__=3
 
 # This selects how we optimise for the processor.
 tune-$(CONFIG_CPU_ARM7TDMI)	:=-mtune=arm7tdmi
@@ -206,7 +204,6 @@ machine-$(CONFIG_ARCH_PXA)		+= pxa
 machine-$(CONFIG_ARCH_QCOM)		+= qcom
 machine-$(CONFIG_ARCH_REALTEK)		+= realtek
 machine-$(CONFIG_ARCH_ROCKCHIP)		+= rockchip
-machine-$(CONFIG_ARCH_RPC)		+= rpc
 machine-$(CONFIG_PLAT_SAMSUNG)		+= s3c
 machine-$(CONFIG_ARCH_S5PV210)		+= s5pv210
 machine-$(CONFIG_ARCH_RENESAS)	 	+= shmobile
@@ -221,11 +218,6 @@ machine-$(CONFIG_ARCH_ZTE)		+= zte
 machine-$(CONFIG_ARCH_ZYNQ)		+= zynq
 machine-$(CONFIG_PLAT_VERSATILE)	+= versatile
 machine-$(CONFIG_PLAT_SPEAR)		+= spear
-
-# legacy platforms provide their own mach/*.h headers globally,
-# these three are mutually exclusive
-machdirs-$(CONFIG_ARCH_RPC)		+= arch/arm/mach-rpc
-KBUILD_CPPFLAGS += $(patsubst %,-I$(srctree)/%/include,$(machdirs-y))
 
 # The byte offset of the kernel image in RAM from the start of RAM.
 TEXT_OFFSET := $(textofs-y)
