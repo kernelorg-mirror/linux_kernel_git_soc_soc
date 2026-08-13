@@ -582,15 +582,3 @@ resource_size_t pcibios_align_resource(void *data, const struct resource *res,
 
 	return start;
 }
-
-void __init pci_map_io_early(unsigned long pfn)
-{
-	struct map_desc pci_io_desc = {
-		.virtual	= PCI_IO_VIRT_BASE,
-		.type		= MT_DEVICE,
-		.length		= SZ_64K,
-	};
-
-	pci_io_desc.pfn = pfn;
-	iotable_init(&pci_io_desc, 1);
-}
