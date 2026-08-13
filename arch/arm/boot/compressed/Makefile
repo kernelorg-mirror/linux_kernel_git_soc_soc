@@ -30,11 +30,7 @@ OBJS		+= head-xscale.o
 endif
 
 ifeq ($(CONFIG_CPU_ENDIAN_BE32),y)
-ifeq ($(CONFIG_CPU_CP15),y)
 OBJS		+= big-endian.o
-else
-# The endian should be set by h/w design.
-endif
 endif
 
 #
