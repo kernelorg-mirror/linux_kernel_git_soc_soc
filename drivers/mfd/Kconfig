@@ -115,28 +115,6 @@ config MFD_AS3722
 	  controllers, 11 LDOs, RTC, automatic battery, temperature and
 	  over current monitoring, GPIOs, ADC and a watchdog.
 
-config PMIC_ADP5520
-	bool "Analog Devices ADP5520/01 MFD PMIC Core Support"
-	depends on I2C=y
-	help
-	  Say yes here to add support for Analog Devices ADP5520 and ADP5501,
-	  Multifunction Power Management IC. This includes
-	  the I2C driver and the core APIs _only_, you have to select
-	  individual components like LCD backlight, LEDs, GPIOs and Kepad
-	  under the corresponding menus.
-
-config MFD_AAT2870_CORE
-	bool "AnalogicTech AAT2870"
-	select MFD_CORE
-	depends on I2C=y
-	depends on GPIOLIB || COMPILE_TEST
-	depends on GPIOLIB_LEGACY
-	help
-	  If you say yes here you get support for the AAT2870.
-	  This driver provides common support for accessing the device,
-	  additional drivers must be enabled in order to use the
-	  functionality of the device.
-
 config MFD_AT91_USART
 	tristate "AT91 USART Driver"
 	select MFD_CORE
@@ -417,17 +395,6 @@ config MFD_TN48M_CPLD
 	  CPLD. It consists of reset and GPIO drivers. CPLD provides GPIOS-s
 	  for the SFP slots as well as power supply related information.
 	  SFP support depends on the GPIO driver being selected.
-
-config PMIC_DA903X
-	bool "Dialog Semiconductor DA9030/DA9034 PMIC Support"
-	depends on I2C=y
-	help
-	  Say yes here to add support for Dialog Semiconductor DA9030 (a.k.a
-	  ARAVA) and DA9034 (a.k.a MICCO), these are Power Management IC
-	  usually found on PXA processors-based platforms. This includes
-	  the I2C driver and the core APIs _only_, you have to select
-	  individual components like LCD backlight, voltage regulators,
-	  LEDs and battery-charger under the corresponding menus.
 
 config PMIC_DA9052
 	bool
@@ -812,16 +779,6 @@ config MFD_INTEL_PMC_BXT
 	  multi-function device that exposes IPC, General Control
 	  Register and P-unit access. In addition this creates devices
 	  for iTCO watchdog and telemetry that are part of the PMC.
-
-config MFD_IPAQ_MICRO
-	bool "Atmel Micro ASIC (iPAQ h3100/h3600/h3700) Support"
-	depends on SA1100_H3600
-	select MFD_CORE
-	help
-	  Select this to get support for the Microcontroller found in
-	  the Compaq iPAQ handheld computers. This is an Atmel
-	  AT90LS8535 microcontroller flashed with a special iPAQ
-	  firmware using the custom protocol implemented in this driver.
 
 config MFD_IQS62X
 	tristate "Azoteq IQS620A/621/622/624/625 core support"
@@ -1324,20 +1281,6 @@ config MFD_RT5120
 	  is targeted at providing the CPU voltage, memory, I/O and peripheral
 	  power rails in home entertainment devices.
 
-config MFD_RC5T583
-	bool "Ricoh RC5T583 Power Management system device"
-	depends on I2C=y
-	select MFD_CORE
-	select REGMAP_I2C
-	help
-	  Select this option to get support for the RICOH583 Power
-	  Management system device.
-	  This driver provides common support for accessing the device
-	  through i2c interface. The device supports multiple sub-devices
-	  like GPIO, interrupts, RTC, LDO and DCDC regulators, onkey.
-	  Additional drivers must be enabled in order to use the
-	  different functionality of the device.
-
 config MFD_RK8XX
 	tristate
 	select MFD_CORE
@@ -1424,20 +1367,6 @@ config MFD_SEC_I2C
 	  Have in mind that important core drivers (like regulators) depend
 	  on this driver so building this as a module might require proper
 	  initial ramdisk or might not boot up as well in certain scenarios.
-
-config MFD_SI476X_CORE
-	tristate "Silicon Laboratories 4761/64/68 AM/FM radio."
-	depends on I2C
-	depends on GPIOLIB_LEGACY
-	select MFD_CORE
-	select REGMAP_I2C
-	help
-	  This is the core driver for the SI476x series of AM/FM
-	  radio. This MFD driver connects the radio-si476x V4L2 module
-	  and the si476x audio codec.
-
-	  To compile this driver as a module, choose M here: the
-	  module will be called si476x-core.
 
 config MFD_SIMPLE_MFD_I2C
 	tristate
@@ -1637,16 +1566,6 @@ config MFD_LP3943
 	  This driver consists of GPIO and PWM drivers.
 	  With these functionalities, it can be used for LED string control or
 	  general usage such like a GPIO controller and a PWM controller.
-
-config MFD_LP8788
-	bool "TI LP8788 Power Management Unit Driver"
-	depends on I2C=y
-	select MFD_CORE
-	select REGMAP_I2C
-	select IRQ_DOMAIN
-	help
-	  TI LP8788 PMU supports regulators, battery charger, RTC,
-	  ADC, backlight driver and current sinks.
 
 config MFD_TI_LMU
 	tristate "TI Lighting Management Unit driver"
@@ -1964,29 +1883,6 @@ config TWL6040_CORE
 	  additional drivers must be enabled in order to use the
 	  functionality of the device (audio, vibra).
 
-config MENELAUS
-	bool "TI TWL92330/Menelaus PM chip"
-	depends on I2C=y && ARCH_OMAP2
-	help
-	  If you say yes here you get support for the Texas Instruments
-	  TWL92330/Menelaus Power Management chip. This include voltage
-	  regulators, Dual slot memory card transceivers, real-time clock
-	  and other features that are often used in portable devices like
-	  cell phones and PDAs.
-
-config MFD_LM3533
-	tristate "TI/National Semiconductor LM3533 Lighting Power chip"
-	depends on I2C
-	select MFD_CORE
-	select REGMAP_I2C
-	help
-	  Say yes here to enable support for National Semiconductor / TI
-	  LM3533 Lighting Power chips.
-
-	  This driver provides common support for accessing the device;
-	  additional drivers must be enabled in order to use the LED,
-	  backlight or ambient-light-sensor functionality of the device.
-
 config MFD_TIMBERDALE
 	tristate "Timberdale FPGA"
 	select MFD_CORE
@@ -2082,17 +1978,6 @@ config MFD_WM8998
 	help
 	  Support for Wolfson Microelectronics WM8998 low power audio SoC
 
-config MFD_WM8400
-	bool "Wolfson Microelectronics WM8400"
-	select MFD_CORE
-	depends on I2C=y
-	select REGMAP_I2C
-	help
-	  Support for the Wolfson Microelecronics WM8400 PMIC and audio
-	  CODEC.  This driver provides common support for accessing
-	  the device, additional drivers must be enabled in order to use
-	  the functionality of the device.
-
 config MFD_WM831X
 	bool
 
@@ -2121,21 +2006,6 @@ config MFD_WM831X_SPI
 	  when controlled using SPI.  This driver provides common support
 	  for accessing the device, additional drivers must be enabled in
 	  order to use the functionality of the device.
-
-config MFD_WM8350
-	bool
-
-config MFD_WM8350_I2C
-	bool "Wolfson Microelectronics WM8350 with I2C"
-	select MFD_WM8350
-	select REGMAP_I2C
-	depends on I2C=y
-	help
-	  The WM8350 is an integrated audio and power management
-	  subsystem with watchdog and RTC functionality for embedded
-	  systems.  This option enables core support for the WM8350 with
-	  I2C as the control interface.  Additional options must be
-	  selected to enable support for the functionality of the chip.
 
 config MFD_WM8994
 	tristate "Wolfson Microelectronics WM8994"
@@ -2361,30 +2231,6 @@ config MFD_QCOM_PM8008
 	  support for accessing the device by instantiating all the child nodes
 	  under it in the device tree. Additional drivers must be enabled in
 	  order to use the functionality of the device.
-
-menu "Multimedia Capabilities Port drivers"
-	depends on ARCH_SA1100
-
-config MCP
-	tristate
-
-# Interface drivers
-config MCP_SA11X0
-	tristate "Support SA11x0 MCP interface"
-	depends on ARCH_SA1100
-	select MCP
-
-# Chip drivers
-config MCP_UCB1200
-	tristate "Support for UCB1200 / UCB1300"
-	depends on MCP_SA11X0
-	select MCP
-
-config MCP_UCB1200_TS
-	tristate "Touchscreen interface support"
-	depends on MCP_UCB1200 && INPUT
-
-endmenu
 
 config MFD_VEXPRESS_SYSREG
 	tristate "Versatile Express System Registers"

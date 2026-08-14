@@ -1288,13 +1288,6 @@ endmenu
 
 menu "MFD GPIO expanders"
 
-config GPIO_ADP5520
-	tristate "GPIO Support for ADP5520 PMIC"
-	depends on PMIC_ADP5520
-	help
-	  This option enables support for on-chip GPIO found
-	  on Analog Devices ADP5520 PMICs.
-
 config GPIO_ADP5585
 	tristate "GPIO Support for ADP5585"
 	depends on MFD_ADP5585
@@ -1743,13 +1736,6 @@ config GPIO_WM831X
 	depends on MFD_WM831X
 	help
 	  Say yes here to access the GPIO signals of WM831x power management
-	  chips from Wolfson Microelectronics.
-
-config GPIO_WM8350
-	tristate "WM8350 GPIOs"
-	depends on MFD_WM8350
-	help
-	  Say yes here to access the GPIO signals of WM8350 power management
 	  chips from Wolfson Microelectronics.
 
 config GPIO_WM8994

@@ -241,18 +241,6 @@ config LEDS_TURRIS_OMNIA
 	  side of CZ.NIC's Turris Omnia router. There are 12 RGB LEDs on the
 	  front panel.
 
-config LEDS_LM3533
-	tristate "LED support for LM3533"
-	depends on LEDS_CLASS
-	depends on MFD_LM3533
-	help
-	  This option enables support for the LEDs on National Semiconductor /
-	  TI LM3533 Lighting Power chips.
-
-	  The LEDs can be controlled directly, through PWM input, or by the
-	  ambient-light-sensor interface. The chip supports
-	  hardware-accelerated blinking with maximum on and off periods of 9.8
-	  and 77 seconds respectively.
 
 config LEDS_LM3692X
 	tristate "LED support for LM3692x Chips"
@@ -261,14 +249,6 @@ config LEDS_LM3692X
 	help
 	  This option enables support for the TI LM3692x family
 	  of white LED string drivers used for backlighting.
-
-config LEDS_LOCOMO
-	tristate "LED Support for Locomo device"
-	depends on LEDS_CLASS
-	depends on SHARP_LOCOMO
-	help
-	  This option enables support for the LEDs on Sharp Locomo.
-	  Zaurus models SL-5500 and SL-5600.
 
 config LEDS_MIKROTIK_RB532
 	tristate "LED Support for Mikrotik Routerboard 532"
@@ -332,14 +312,6 @@ config LEDS_SUNFIRE
 	help
 	  This option enables support for the Left, Middle, and Right
 	  LEDs on the I/O and CPU boards of SunFire UltraSPARC servers.
-
-config LEDS_IPAQ_MICRO
-	tristate "LED Support for the Compaq iPAQ h3xxx"
-	depends on LEDS_CLASS
-	depends on MFD_IPAQ_MICRO
-	help
-	  Choose this option if you want to use the notification LED on
-	  Compaq/HP iPAQ h3100 and h3600.
 
 config LEDS_HP6XX
 	tristate "LED Support for the HP Jornada 6xx"
@@ -468,13 +440,6 @@ config LEDS_LP8501
 	  It is similar as LP5523, but output power selection is available.
 	  And register layout and engine program schemes are different.
 
-config LEDS_LP8788
-	tristate "LED support for the TI LP8788 PMIC"
-	depends on LEDS_CLASS
-	depends on MFD_LP8788
-	help
-	  This option enables support for the Keyboard LEDs on the LP8788 PMIC.
-
 config LEDS_LP8860
 	tristate "LED support for the TI LP8860 4 channel LED driver"
 	depends on LEDS_CLASS && I2C && OF
@@ -586,22 +551,6 @@ config LEDS_WM831X_STATUS
 	  This option enables support for the status LEDs of the WM831x
 	  series of PMICs.
 
-config LEDS_WM8350
-	tristate "LED Support for WM8350 AudioPlus PMIC"
-	depends on LEDS_CLASS
-	depends on MFD_WM8350
-	help
-	  This option enables support for LEDs driven by the Wolfson
-	  Microelectronics WM8350 AudioPlus PMIC.
-
-config LEDS_DA903X
-	tristate "LED Support for DA9030/DA9034 PMIC"
-	depends on LEDS_CLASS
-	depends on PMIC_DA903X
-	help
-	  This option enables support for on-chip LED drivers found
-	  on Dialog Semiconductor DA9030/DA9034 PMICs.
-
 config LEDS_DAC124S085
 	tristate "LED Support for DAC124S085 SPI DAC"
 	depends on LEDS_CLASS
@@ -657,17 +606,6 @@ config LEDS_LT3593
 	  This option enables support for LEDs driven by a Linear Technology
 	  LT3593 controller. This controller uses a special one-wire pulse
 	  coding protocol to set the brightness.
-
-config LEDS_ADP5520
-	tristate "LED Support for ADP5520/ADP5501 PMIC"
-	depends on LEDS_CLASS
-	depends on PMIC_ADP5520
-	help
-	  This option enables support for on-chip LED drivers found
-	  on Analog Devices ADP5520/ADP5501 PMICs.
-
-	  To compile this driver as a module, choose M here: the module will
-	  be called leds-adp5520.
 
 config LEDS_MAX5970
 	tristate "LED Support for Maxim 5970"

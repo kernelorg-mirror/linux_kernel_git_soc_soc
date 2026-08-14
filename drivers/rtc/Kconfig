@@ -317,12 +317,6 @@ config RTC_DRV_HYM8563
 	  This driver can also be built as a module. If so, the module
 	  will be called rtc-hym8563.
 
-config RTC_DRV_LP8788
-	tristate "TI LP8788 RTC driver"
-	depends on MFD_LP8788
-	help
-	  Say Y to enable support for the LP8788 RTC/ALARM driver.
-
 config RTC_DRV_MAX6900
 	tristate "Maxim MAX6900"
 	help
@@ -576,15 +570,6 @@ config RTC_DRV_BQ32K
 	  This driver can also be built as a module. If so, the module
 	  will be called rtc-bq32k.
 
-config RTC_DRV_TWL92330
-	bool "TI TWL92330/Menelaus"
-	depends on MENELAUS
-	help
-	  If you say yes here you get support for the RTC on the
-	  TWL92330 "Menelaus" power management chip, used with OMAP2
-	  platforms. The support is integrated with the rest of
-	  the Menelaus driver; it's not separate module.
-
 config RTC_DRV_TWL4030
 	tristate "TI TWL4030/TWL5030/TWL6030/TPS659x0"
 	depends on TWL4030_CORE
@@ -635,16 +620,6 @@ config RTC_DRV_TPS65910
 
 	  This driver can also be built as a module. If so, the module
 	  will be called rtc-tps65910.
-
-config RTC_DRV_RC5T583
-	tristate "RICOH 5T583 RTC driver"
-	depends on MFD_RC5T583
-	help
-	  If you say yes here you get support for the RTC on the
-	  RICOH 5T583 chips.
-
-	  This driver can also be built as a module. If so, the module
-	  will be called rtc-rc5t583.
 
 config RTC_DRV_RC5T619
 	tristate "RICOH RC5T619 RTC driver"
@@ -1331,16 +1306,6 @@ config RTC_DRV_WM831X
 	  This driver can also be built as a module. If so, the module
 	  will be called "rtc-wm831x".
 
-config RTC_DRV_WM8350
-	tristate "Wolfson Microelectronics WM8350 RTC"
-	depends on MFD_WM8350
-	help
-	  If you say yes here you will get support for the RTC subsystem
-	  of the Wolfson Microelectronics WM8350.
-
-	  This driver can also be built as a module. If so, the module
-	  will be called "rtc-wm8350".
-
 config RTC_DRV_SC27XX
 	tristate "Spreadtrum SC27xx RTC"
 	depends on MFD_SC27XX_PMIC || COMPILE_TEST
@@ -1531,8 +1496,8 @@ config RTC_DRV_EP93XX
 	  will be called rtc-ep93xx.
 
 config RTC_DRV_SA1100
-	tristate "SA11x0/PXA2xx/PXA910"
-	depends on ARCH_SA1100 || ARCH_PXA || ARCH_MMP
+	tristate "PXA2xx/PXA910"
+	depends on ARCH_PXA || ARCH_MMP
 	help
 	  If you say Y here you will get access to the real time clock
 	  built into your SA11x0 or PXA2xx CPU.
@@ -1793,19 +1758,6 @@ config RTC_DRV_LOONGSON
 
 	  This driver can also be built as a module. If so, the module
 	  will be called rtc-loongson.
-
-config RTC_DRV_LPC24XX
-	tristate "NXP RTC for LPC178x/18xx/408x/43xx"
-	depends on ARCH_LPC18XX || COMPILE_TEST
-	depends on OF && HAS_IOMEM
-	depends on COMMON_CLK
-	help
-	  This enables support for the NXP RTC found which can be found on
-	  NXP LPC178x/18xx/408x/43xx devices.
-
-	  If you have one of the devices above enable this driver to use
-	  the hardware RTC. This driver can also be built as a module. If
-	  so, the module will be called rtc-lpc24xx.
 
 config RTC_DRV_LPC32XX
 	depends on ARCH_LPC32XX || COMPILE_TEST

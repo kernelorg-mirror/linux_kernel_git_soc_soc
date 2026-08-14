@@ -27,16 +27,6 @@ config KEYBOARD_ADC
 	  To compile this driver as a module, choose M here: the
 	  module will be called adc_keys.
 
-config KEYBOARD_ADP5520
-	tristate "Keypad Support for ADP5520 PMIC"
-	depends on PMIC_ADP5520
-	help
-	  This option enables support for the keypad scan matrix
-	  on Analog Devices ADP5520 PMICs.
-
-	  To compile this driver as a module, choose M here: the module will
-	  be called adp5520-keys.
-
 config KEYBOARD_ADP5585
 	tristate "ADP558x keypad support"
 	depends on MFD_ADP5585
@@ -344,24 +334,6 @@ config KEYBOARD_HP6XX
 	  To compile this driver as a module, choose M here: the
 	  module will be called jornada680_kbd.
 
-config KEYBOARD_HP7XX
-	tristate "HP Jornada 7xx keyboard"
-	depends on SA1100_JORNADA720_SSP && SA1100_SSP
-	help
-	  Say Y here if you have a HP Jornada 710/720/728 and want to
-	  support the built-in keyboard.
-
-	  To compile this driver as a module, choose M here: the
-	  module will be called jornada720_kbd.
-
-config KEYBOARD_LOCOMO
-	tristate "LoCoMo Keyboard Support"
-	depends on SHARP_LOCOMO
-	help
-	  Say Y here if you are running Linux on a Sharp Zaurus Collie or Poodle based PDA
-
-	  To compile this driver as a module, choose M here: the
-	  module will be called locomokbd.
 
 config KEYBOARD_LPC32XX
 	tristate "LPC32XX matrix key scanner support"
@@ -622,16 +594,6 @@ config KEYBOARD_SUN4I_LRADC
 
 	  To compile this driver as a module, choose M here: the
 	  module will be called sun4i-lradc-keys.
-
-config KEYBOARD_IPAQ_MICRO
-	tristate "Buttons on Micro SoC (iPaq h3100,h3600,h3700)"
-	depends on MFD_IPAQ_MICRO
-	help
-	  Say Y to enable support for the buttons attached to
-	  Micro peripheral controller on iPAQ h3100/h3600/h3700
-
-	  To compile this driver as a module, choose M here: the
-	  module will be called ipaq-micro-keys.
 
 config KEYBOARD_IQS62X
 	tristate "Azoteq IQS620A/621/622/624/625 keys and switches"

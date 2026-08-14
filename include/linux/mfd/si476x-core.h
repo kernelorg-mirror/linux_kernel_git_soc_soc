@@ -21,7 +21,6 @@
 #include <linux/videodev2.h>
 #include <linux/regulator/consumer.h>
 
-#include <linux/mfd/si476x-platform.h>
 #include <linux/mfd/si476x-reports.h>
 
 /* Command Timeouts */

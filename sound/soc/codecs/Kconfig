@@ -249,7 +249,6 @@ config SND_SOC_ALL_CODECS
 	imply SND_SOC_RTQ9128
 	imply SND_SOC_SDW_MOCKUP
 	imply SND_SOC_SGTL5000
-	imply SND_SOC_SI476X
 	imply SND_SOC_SIMPLE_AMPLIFIER
 	imply SND_SOC_SIMPLE_MUX
 	imply SND_SOC_SMA1303
@@ -317,8 +316,6 @@ config SND_SOC_ALL_CODECS
 	imply SND_SOC_WM5100
 	imply SND_SOC_WM5102
 	imply SND_SOC_WM5110
-	imply SND_SOC_WM8350
-	imply SND_SOC_WM8400
 	imply SND_SOC_WM8510
 	imply SND_SOC_WM8523
 	imply SND_SOC_WM8524
@@ -2044,10 +2041,6 @@ config SND_SOC_SGTL5000
 	tristate "Freescale SGTL5000 CODEC"
 	depends on I2C
 
-config SND_SOC_SI476X
-	tristate
-	depends on MFD_SI476X_CORE
-
 config SND_SOC_SIGMADSP
 	tristate
 	select CRC32
@@ -2539,15 +2532,6 @@ config SND_SOC_WM5110
 	tristate
 	depends on MFD_WM5110 && MFD_ARIZONA
 	select SND_SOC_WM_ADSP
-
-config SND_SOC_WM8350
-	tristate
-	depends on MFD_WM8350
-
-config SND_SOC_WM8400
-	tristate
-	# FIXME nothing selects SND_SOC_WM8400??
-	depends on MFD_WM8400
 
 config SND_SOC_WM8510
 	tristate "Wolfson Microelectronics WM8510 CODEC"

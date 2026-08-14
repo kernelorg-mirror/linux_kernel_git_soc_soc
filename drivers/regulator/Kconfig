@@ -132,13 +132,6 @@ config REGULATOR_ANATOP
 	  regulators. It is recommended that this option be
 	  enabled on i.MX6 platform.
 
-config REGULATOR_AAT2870
-	tristate "AnalogicTech AAT2870 Regulators"
-	depends on MFD_AAT2870_CORE
-	help
-	  If you have a AnalogicTech AAT2870 say Y to enable the
-	  regulator driver.
-
 config REGULATOR_AB8500
 	bool "ST-Ericsson AB8500 Power Regulators"
 	depends on AB8500_CORE
@@ -311,14 +304,6 @@ config REGULATOR_CROS_EC
 
 	  This driver can also be built as a module. If so, the module
 	  will be called cros-ec-regulator.
-
-config REGULATOR_DA903X
-	tristate "Dialog Semiconductor DA9030/DA9034 regulators"
-	depends on PMIC_DA903X
-	depends on !CC_IS_CLANG # https://llvm.org/pr38789
-	help
-	  Say y here to support the BUCKs and LDOs regulators found on
-	  Dialog Semiconductor DA9030/DA9034 PMIC.
 
 config REGULATOR_DA9052
 	tristate "Dialog Semiconductor DA9052/DA9053 regulators"
@@ -516,20 +501,6 @@ config REGULATOR_LOCHNAGAR
 	  This enables regulator support on the Cirrus Logic Lochnagar audio
 	  development board.
 
-config REGULATOR_LP3971
-	tristate "National Semiconductors LP3971 PMIC regulator driver"
-	depends on I2C
-	help
-	 Say Y here to support the voltage regulators and convertors
-	 on National Semiconductors LP3971 PMIC
-
-config REGULATOR_LP3972
-	tristate "National Semiconductors LP3972 PMIC regulator driver"
-	depends on I2C
-	help
-	 Say Y here to support the voltage regulators and convertors
-	 on National Semiconductors LP3972 PMIC
-
 config REGULATOR_LP872X
 	tristate "TI/National Semiconductor LP8720/LP8725 voltage regulators"
 	depends on I2C
@@ -562,12 +533,6 @@ config REGULATOR_LP87565
 	  This driver supports LP87565 voltage regulator chips. LP87565
 	  provides four step-down converters. It supports software based
 	  voltage control for different voltage domains
-
-config REGULATOR_LP8788
-	tristate "TI LP8788 Power Regulators"
-	depends on MFD_LP8788
-	help
-	  This driver supports LP8788 voltage regulator chip.
 
 config REGULATOR_LTC3589
 	tristate "LTC3589 8-output voltage regulator"
@@ -1227,16 +1192,6 @@ config REGULATOR_RASPBERRYPI_TOUCHSCREEN_V2
 	  unit. The regulator is used to enable power to the display and to
 	  control backlight PWM.
 
-config REGULATOR_RC5T583
-	tristate "RICOH RC5T583 Power regulators"
-	depends on MFD_RC5T583
-	help
-	  Select this option to enable the power regulator of RICOH
-	  PMIC RC5T583.
-	  This driver supports the control of different power rails of device
-	  through regulator interface. The device supports multiple DCDC/LDO
-	  outputs which can be controlled by i2c communication.
-
 config REGULATOR_RK808
 	tristate "Rockchip RK805/RK808/RK809/RK817/RK818 Power regulators"
 	depends on MFD_RK8XX
@@ -1839,20 +1794,6 @@ config REGULATOR_WM831X
 	help
 	  Support the voltage and current regulators of the WM831x series
 	  of PMIC devices.
-
-config REGULATOR_WM8350
-	tristate "Wolfson Microelectronics WM8350 AudioPlus PMIC"
-	depends on MFD_WM8350
-	help
-	  This driver provides support for the voltage and current regulators
-	  of the WM8350 AudioPlus PMIC.
-
-config REGULATOR_WM8400
-	tristate "Wolfson Microelectronics WM8400 AudioPlus PMIC"
-	depends on MFD_WM8400
-	help
-	  This driver provides support for the voltage regulators of the
-	  WM8400 AudioPlus PMIC.
 
 config REGULATOR_WM8994
 	tristate "Wolfson Microelectronics WM8994 CODEC"

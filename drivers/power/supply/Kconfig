@@ -74,13 +74,6 @@ config WM831X_POWER
 	  Say Y here to enable support for the power management unit
 	  provided by Wolfson Microelectronics WM831x PMICs.
 
-config WM8350_POWER
-	tristate "WM8350 PMU support"
-	depends on MFD_WM8350
-	help
-	  Say Y here to enable support for the power management unit
-	  provided by the Wolfson Microelectronics WM8350 PMIC.
-
 config TEST_POWER
 	tristate "Test power driver"
 	help
@@ -240,13 +233,6 @@ config BATTERY_S2MU005
 
 	  This driver, if built as a module, will be called s2mu005-fuel-gauge.
 
-config BATTERY_COLLIE
-	tristate "Sharp SL-5500 (collie) battery"
-	depends on SA1100_COLLIE && MCP_UCB1200
-	help
-	  Say Y to enable support for the battery on the Sharp Zaurus
-	  SL-5500 (collie) models.
-
 config BATTERY_INGENIC
 	tristate "Ingenic JZ47xx SoCs battery driver"
 	depends on MIPS || COMPILE_TEST
@@ -269,13 +255,6 @@ config BATTERY_INTEL_DC_TI
 
 	  To compile this driver as a module, choose M here: the module will be
 	  called intel_dc_ti_battery.
-
-config BATTERY_IPAQ_MICRO
-	tristate "iPAQ Atmel Micro ASIC battery driver"
-	depends on MFD_IPAQ_MICRO
-	help
-	  Choose this option if you want to monitor battery status on
-	  Compaq/HP iPAQ h3100 and h3600.
 
 config BATTERY_WM97XX
 	bool "WM97xx generic battery driver"
@@ -344,13 +323,6 @@ config BATTERY_BQ27XXX_DT_UPDATES_NVM
 	  easily be replaced with one of a different type. Not for
 	  general-purpose kernels, as this can cause misconfiguration of a
 	  smart battery with embedded NVM/flash.
-
-config BATTERY_DA9030
-	tristate "DA9030 battery driver"
-	depends on PMIC_DA903X
-	help
-	  Say Y here to enable support for batteries charger integrated into
-	  DA9030 PMIC.
 
 config BATTERY_DA9052
 	tristate "Dialog DA9052 Battery"
@@ -554,14 +526,6 @@ config CHARGER_LP8727
 	depends on I2C
 	help
 	  Say Y here to enable support for LP8727 Charger Driver.
-
-config CHARGER_LP8788
-	tristate "TI LP8788 charger driver"
-	depends on MFD_LP8788
-	depends on LP8788_ADC
-	depends on IIO
-	help
-	  Say Y to enable support for the LP8788 linear charger.
 
 config CHARGER_GPIO
 	tristate "GPIO charger"

@@ -43,19 +43,6 @@ config TOUCHSCREEN_ADS7846
 	  To compile this driver as a module, choose M here: the
 	  module will be called ads7846.
 
-config TOUCHSCREEN_AD7877
-	tristate "AD7877 based touchscreens"
-	depends on SPI_MASTER
-	help
-	  Say Y here if you have a touchscreen interface using the
-	  AD7877 controller, and your board-specific initialization
-	  code includes that in its table of SPI devices.
-
-	  If unsure, say N (but it's safe to say "Y").
-
-	  To compile this driver as a module, choose M here: the
-	  module will be called ad7877.
-
 config TOUCHSCREEN_AD7879
 	tristate "Analog Devices AD7879-1/AD7889-1 touchscreen interface"
 	help
@@ -281,19 +268,6 @@ config TOUCHSCREEN_CYTTSP5
 
 	  To compile this driver as a module, choose M here: the
 	  module will be called cyttsp5.
-
-config TOUCHSCREEN_DA9034
-	tristate "Touchscreen support for Dialog Semiconductor DA9034"
-	depends on PMIC_DA903X
-	default y
-	help
-	  Say Y here to enable the support for the touchscreen found
-	  on Dialog Semiconductor DA9034 PMIC.
-
-	  If unsure, say N.
-
-	  To compile this driver as a module, choose M here: the
-	  module will be called da9034-ts.
 
 config TOUCHSCREEN_DA9052
 	tristate "Dialog DA9052/DA9053 TSI"
@@ -744,28 +718,6 @@ config TOUCHSCREEN_HP600
 
 	  To compile this driver as a module, choose M here: the
 	  module will be called hp680_ts_input.
-
-config TOUCHSCREEN_HP7XX
-	tristate "HP Jornada 7xx touchscreen"
-	depends on SA1100_JORNADA720_SSP
-	help
-	  Say Y here if you have a HP Jornada 710/720/728 and want
-	  to support the built-in touchscreen.
-
-	  To compile this driver as a module, choose M here: the
-	  module will be called jornada720_ts.
-
-config TOUCHSCREEN_IPAQ_MICRO
-	tristate "HP iPAQ Atmel Micro ASIC touchscreen"
-	depends on MFD_IPAQ_MICRO
-	help
-	  Say Y here to enable support for the touchscreen attached to
-	  the Atmel Micro peripheral controller on iPAQ h3100/h3600/h3700
-
-	  If unsure, say N.
-
-	  To compile this driver as a module, choose M here: the
-	  module will be called ipaq-micro-ts.
 
 config TOUCHSCREEN_HTCPEN
 	tristate "HTC Shift X9500 touchscreen"

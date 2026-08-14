@@ -451,13 +451,6 @@ F:	drivers/iio/dac/ad5446-spi.c
 F:	drivers/iio/dac/ad5446.c
 F:	drivers/iio/dac/ad5446.h
 
-AD714X CAPACITANCE TOUCH SENSOR DRIVER (AD7142/3/7/8/7A)
-M:	Michael Hennerich <michael.hennerich@analog.com>
-S:	Supported
-W:	http://wiki.analog.com/AD7142
-W:	https://ez.analog.com/linux-software-drivers
-F:	drivers/input/misc/ad714x.c
-
 AD738X ADC DRIVER (AD7380/1/2/4)
 M:	Michael Hennerich <michael.hennerich@analog.com>
 M:	Nuno Sá <nuno.sa@analog.com>
@@ -473,13 +466,6 @@ AD7476 ADC DRIVER FOR VARIOUS SIMPLE 1-CHANNEL SPI ADCs
 M:	Matti Vaittinen <mazziesaccount@gmail.com>
 S:	Maintained
 F:	drivers/iio/adc/ad7476.c
-
-AD7877 TOUCHSCREEN DRIVER
-M:	Michael Hennerich <michael.hennerich@analog.com>
-S:	Supported
-W:	http://wiki.analog.com/AD7877
-W:	https://ez.analog.com/linux-software-drivers
-F:	drivers/input/touchscreen/ad7877.c
 
 AD7879 TOUCHSCREEN DRIVER (AD7879/AD7889)
 M:	Michael Hennerich <michael.hennerich@analog.com>
@@ -549,17 +535,6 @@ L:	linux-media@vger.kernel.org
 S:	Maintained
 F:	Documentation/devicetree/bindings/media/i2c/adi,adp1653.txt
 F:	drivers/media/i2c/adp1653.c
-
-ADP5520 BACKLIGHT DRIVER WITH IO EXPANDER (ADP5520/ADP5501)
-M:	Michael Hennerich <michael.hennerich@analog.com>
-S:	Supported
-W:	http://wiki.analog.com/ADP5520
-W:	https://ez.analog.com/linux-software-drivers
-F:	drivers/gpio/gpio-adp5520.c
-F:	drivers/input/keyboard/adp5520-keys.c
-F:	drivers/leds/leds-adp5520.c
-F:	drivers/mfd/adp5520.c
-F:	drivers/video/backlight/adp5520_bl.c
 
 ADP5585 GPIO EXPANDER, PWM AND KEYPAD CONTROLLER DRIVER
 M:	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
@@ -7428,7 +7403,6 @@ F:	drivers/input/misc/da72??.[ch]
 F:	drivers/input/misc/da90??_onkey.c
 F:	drivers/input/touchscreen/da9052_tsi.c
 F:	drivers/leds/leds-da90??.c
-F:	drivers/mfd/da903x.c
 F:	drivers/mfd/da90??-*.c
 F:	drivers/mfd/da91??-*.c
 F:	drivers/pinctrl/pinctrl-da90??.c
@@ -23947,14 +23921,6 @@ F:	drivers/rtc/rtc-s5m.c
 F:	include/dt-bindings/regulator/samsung,s2m*.h
 F:	include/linux/mfd/samsung/
 
-SAMSUNG S3C24XX/S3C64XX SOC SERIES CAMIF DRIVER
-M:	Sylwester Nawrocki <sylvester.nawrocki@gmail.com>
-L:	linux-media@vger.kernel.org
-L:	linux-samsung-soc@vger.kernel.org
-S:	Maintained
-F:	drivers/media/platform/samsung/s3c-camif/
-F:	include/media/drv-intf/s3c_camif.h
-
 SAMSUNG S3FWRN5 NFC DRIVER
 M:	Krzysztof Kozlowski <krzk@kernel.org>
 S:	Maintained
@@ -29020,7 +28986,6 @@ F:	drivers/video/backlight/wm83*_bl.c
 F:	drivers/watchdog/wm83*_wdt.c
 F:	include/linux/mfd/arizona/
 F:	include/linux/mfd/wm831x/
-F:	include/linux/mfd/wm8400*
 F:	include/linux/regulator/arizona*
 F:	include/linux/wm97xx.h
 F:	include/sound/wm????.h

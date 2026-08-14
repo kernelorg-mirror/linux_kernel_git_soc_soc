@@ -1191,16 +1191,6 @@ config SENSORS_MACSMC_HWMON
 	  This driver can also be built as a module. If so, the module will
 	  be called macsmc-hwmon.
 
-config SENSORS_MAX1111
-	tristate "Maxim MAX1111 Serial 8-bit ADC chip and compatibles"
-	depends on SPI_MASTER
-	help
-	  Say y here to support Maxim's MAX1110, MAX1111, MAX1112, and MAX1113
-	  ADC chips.
-
-	  This driver can also be built as a module. If so, the module
-	  will be called max1111.
-
 config SENSORS_MAX127
 	tristate "Maxim MAX127 12-bit 8-channel Data Acquisition System"
 	depends on I2C
@@ -1246,15 +1236,6 @@ config SENSORS_MAX1668
 
 	  This driver can also be built as a module. If so, the module
 	  will be called max1668.
-
-config SENSORS_MAX197
-	tristate "Maxim MAX197 and compatibles"
-	help
-	  Support for the Maxim MAX197 A/D converter.
-	  Support will include, but not be limited to, MAX197, and MAX199.
-
-	  This driver can also be built as a module. If so, the module
-	  will be called max197.
 
 config SENSORS_MAX31722
 	tristate "MAX31722 temperature sensor"
@@ -2665,16 +2646,6 @@ config SENSORS_WM831X
 
 	  This driver can also be built as a module. If so, the module
 	  will be called wm831x-hwmon.
-
-config SENSORS_WM8350
-	tristate "Wolfson Microelectronics WM835x"
-	depends on MFD_WM8350
-	help
-	  If you say yes here you get support for the hardware
-	  monitoring features of the WM835x series of PMICs.
-
-	  This driver can also be built as a module. If so, the module
-	  will be called wm8350-hwmon.
 
 config SENSORS_ULTRA45
 	tristate "Sun Ultra45 PIC16F747"
