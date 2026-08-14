@@ -166,34 +166,6 @@ struct cpu_cache_fns b15_cache_fns __initconst = {
 };
 #endif
 
-/* The NOP cache is just a set of dummy stubs that by definition does nothing */
-#ifdef CONFIG_CPU_CACHE_NOP
-void nop_flush_icache_all(void);
-void nop_flush_kern_cache_all(void);
-void nop_flush_user_cache_all(void);
-void nop_flush_user_cache_range(unsigned long start, unsigned long end, unsigned int flags);
-void nop_coherent_kern_range(unsigned long start, unsigned long end);
-int nop_coherent_user_range(unsigned long, unsigned long);
-void nop_flush_kern_dcache_area(void *kaddr, size_t size);
-void nop_dma_map_area(const void *start, size_t size, int flags);
-void nop_dma_unmap_area(const void *start, size_t size, int flags);
-void nop_dma_flush_range(const void *start, const void *end);
-
-struct cpu_cache_fns nop_cache_fns __initconst = {
-	.flush_icache_all = nop_flush_icache_all,
-	.flush_kern_all = nop_flush_kern_cache_all,
-	.flush_kern_louis = nop_flush_kern_cache_all,
-	.flush_user_all = nop_flush_user_cache_all,
-	.flush_user_range = nop_flush_user_cache_range,
-	.coherent_kern_range = nop_coherent_kern_range,
-	.coherent_user_range = nop_coherent_user_range,
-	.flush_kern_dcache_area = nop_flush_kern_dcache_area,
-	.dma_map_area = nop_dma_map_area,
-	.dma_unmap_area = nop_dma_unmap_area,
-	.dma_flush_range = nop_dma_flush_range,
-};
-#endif
-
 #if defined(CONFIG_CPU_ARM920T) && !defined(CONFIG_CPU_DCACHE_WRITETHROUGH)
 void arm920_flush_icache_all(void);
 void arm920_flush_kern_cache_all(void);

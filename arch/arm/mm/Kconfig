@@ -268,13 +268,7 @@ config CPU_32v6K
 config CPU_32v7
 	bool
 
-config CPU_32v7M
-	bool
-
 # The abort model
-config CPU_ABRT_NOMMU
-	bool
-
 config CPU_ABRT_EV4
 	bool
 
@@ -316,9 +310,6 @@ config CPU_CACHE_V6
 	bool
 
 config CPU_CACHE_V7
-	bool
-
-config CPU_CACHE_NOP
 	bool
 
 config CPU_CACHE_VIVT
